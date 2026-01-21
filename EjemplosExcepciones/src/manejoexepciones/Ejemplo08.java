@@ -26,7 +26,12 @@ public class Ejemplo08 {
             System.out.printf("Resultado %.2f", resultado2);
         }
         catch(Exception e){
-            
+            /*
+            No tenemos la necesidad de agregar mas "catchs" debido a que el Exception
+            e, abarca a todos los errores que tenemos, porque es una clase padre 
+            de casi todas las excepciones que puedan existir en el programa, espe
+            cificamente atrapa a las que son heredadas del "Exception".
+            */
             System.out.printf(" Lo sentimos hay un error de tipo %s\n", e);
         
         }
