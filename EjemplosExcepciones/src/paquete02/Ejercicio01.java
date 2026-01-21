@@ -16,40 +16,44 @@ pares positivos del cero en adelante
 public class Ejercicio01 {
 
     public static void main(String[] args) {
-        int valores = ingresarValores();
+        Scanner entrada = new Scanner(System.in);
         System.out.println("Ingrese valor 1:");
-                int valor1 = entrada.nextInt();
-                System.out.println("Ingrese valor 2:");
-                int valor2 = entrada.nextInt();
+        int valor1 = ingresarValores();
+        System.out.println("Ingrese valor 2:");
+        int valor2 = ingresarValores();
+
+        int suma = obtenerSuma(valor1, valor2);
+        imprimir(valor1, valor2, suma);
     }
 
     public static int ingresarValores() {
+        Scanner entrada = new Scanner(System.in);
         boolean bandera = true;
         int resultado = 0;
         while (bandera) {
             try {
-                resultado = valor1 / valor2;
-                
-                if (valor1 % 2 !=0 || valor2 % 2 !=0){
-               throw new Exception("Número impar");
-            }
+                resultado = entrada.nextInt();
+                if (resultado % 2 != 0 || resultado % 2 != 0) {
+                    throw new Exception("Número impar");
+                } else {
+                    bandera = false;
+                }
 
-                System.out.printf("Resultado %d\n", resultado);
-                bandera = false;
-
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.printf("Ocurrió una excepción %s\n", e);
+                System.out.println("Ingrese nuevamente el valor:");
             }
         }
         return resultado;
     }
 
-    public static void imprimir() {
-
+    public static void imprimir(int v1, int v2, int suma) {
+System.out.printf("La suma de %d + %d = %d", v1, v2, suma);
     }
 
-    public static int obtenerSuma() {
-
+    public static int obtenerSuma(int v1, int v2) {
+        int suma = v1 + v2;
+        return suma;
     }
 
 }
